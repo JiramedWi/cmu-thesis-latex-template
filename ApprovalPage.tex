@@ -1,0 +1,24 @@
+% ============================================================================
+% APPROVAL PAGE
+% ============================================================================
+% This page shows the examination committee signatures.
+% Names are pulled automatically from ThesisInfo.tex commands.
+% You normally do NOT need to edit this file unless your committee structure
+% differs from the default (4 examiners + advisor + co-advisor).
+% ============================================================================
+
+\begin{ApprovalPage}
+    \begin{tabularx}{\textwidth}{@{}Xl@{}}
+    % Signature ====================================================================
+    \textbf{Examination Committee\,:}	&\textbf{Advisor\,:}\\~\\
+................................................. Chairman	&................................................. Advisor\\
+(\printChairman)											&(\printAdvisor)\\~\\
+................................................. Member	&................................................. Co-advisor\\
+(\printCommitteeA)											&(\printCoadvisorA)\\~\\
+................................................. Member	&\\
+(\printCommitteeB)\\~\\
+................................................. Member	&\\
+(\printCommitteeC)\\~\\
+
+    \end{tabularx}\vspace{66pt}
+\end{ApprovalPage}

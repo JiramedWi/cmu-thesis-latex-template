@@ -1,0 +1,272 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%     CMU-THESIS TEMPLATE version 201710      %%%
+%%%             By Wanchai Tapanyo              %%%
+%%%   XeLaTeX typesetting system (MikTeX 2.9)   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Mathematics Department, Faculty of Science  %%%
+%%% Chiang Mai University, Chiang Mai Thailand  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===============================================================================
+%%— use XeLaTeX as your engine —%%
+\documentclass[11pt,oneside,a4paper]{CMUThesis}
+
+%— Approximate 1.5-spacing without setspace —
+\linespread{1.3}\selectfont
+
+\usepackage[utf8]{inputenc}    % For UTF-8 encoding
+\usepackage[T1]{fontenc}       % For proper font encoding in PDF
+\usepackage{lmodern}           % (Optional) Improved font rendering
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{tabularx, array}
+    \newlength{\CombWidth}
+    \setlength{\CombWidth}{10.8cm} % <- tune once until the red line matches
+    \newcolumntype{Y}{>{\centering\arraybackslash}X}
+\usepackage{ltablex}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{booktabs} % Add this in your preamble
+
+% \setdefaultlanguage{english}
+% \setotherlanguage{thai}
+
+% Set English font
+\setmainfont{Times New Roman}
+\setmainlanguage{english}
+
+% Set Thai font correctly
+\setotherlanguage{thai}
+\newfontfamily\fontthai{Angsa}[
+  Path=./font/,
+  Scale=1.5,
+  Extension=.ttf,
+  UprightFont=Angsa,
+  BoldFont=Angsab,
+  ItalicFont=Angsai,
+  BoldItalicFont=Angsabi
+]
+
+
+\renewcommand{\textthai}[1]{{\fontthai\selectfont #1}}
+% … the rest of your packages & custom commands …
+%===============================================================================
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% DEFAULT THEOREM STYLE AND COMMANDS %%%%%%%%
+
+% MATH PACKAGE ------------------------------------
+\usepackage{amsmath,amsfonts,amssymb,amsthm,bm}
+\allowdisplaybreaks % break long equations
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conclusion}{}[section]
+
+\numberwithin{theorem}{section}
+\numberwithin{theorem}{chapter}
+\renewcommand{\thetheorem}{%
+	\ifnum\value{section}=0
+	\thechapter%
+	\else
+	\thesection%
+	\fi%
+	.\arabic{theorem}}
+
+%%%%%%% DEFAULT THEOREM STYLE AND COMMANDS %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% AUTHOR'S ADDITIONAL COMMANDS %%%%%%%%%%
+
+% matrix ----------------------------------------------
+\newenvironment{mymatrix}[1]{\begingroup\renewcommand*{\arraystretch}{0.5}\bigg(\begin{matrix} #1}{\end{matrix}\bigg)\endgroup}
+
+
+% Latex Draw Packages --------------------------------
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{epsfig}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
+
+%%%%%%%%%%% AUTHOR'S ADDITIONAL COMMANDS %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% WATERMARK %%%%%%%%%%%%%%%%%%%%
+
+%\watermark
+
+%%%%%%%%%%%%%%%%%%%% WATERMARK %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\pagenumbering{roman} % page number B4 chapters
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% THESIS INFORMATION %%%%%%%%%%
+
+\include{ThesisInfo}
+
+%%%%%%%%% THESIS INFORMATION %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% COVER AND TITLE PAGES %%%%%%%%
+
+\CoverTitlePage
+
+%%%%%%%% COVER AND TITLE PAGES %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% APPROVAL PAGE %%%%%%%%%%%%%
+
+\include{ApprovalPage}
+
+%%%%%%%%%%% APPROVAL PAGE %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% DEDICATION PAGE (OPTIONAL) %%%%%%
+
+% Uncomment if you have a dedication
+% \DedicationPage
+
+%%%%% DEDICATION PAGE (OPTIONAL) %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% ACKNOWLEDGEMENT PAGE %%%%%%%%%
+
+\include{Acknowledgement}
+
+%%%%%%%% ACKNOWLEDGEMENT PAGE %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% ABSTRACT PAGES %%%%%%%%%%%%%
+
+\include{Abstract_English}
+
+%%%%%%%%%% ABSTRACT PAGES %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Abstract_Thai}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% CONTENT PAGE %%%%%%%%%%%%%
+
+\tableofcontents*
+
+%%%%%%%%%%%% CONTENT PAGE %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% OPTIONAL %%%%%%%%%%%%%%%
+
+\listoftables   % list of tables
+\listoffigures  % list of figures
+%\listofsymbols  % list of symbols
+
+% statement of originality -----
+% \include{StateOrigin_Thai}
+% \include{StateOrigin_English}
+
+%%%%%%%%%%%%%% OPTIONAL %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\pagenumbering{arabic} % page numbering
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% TEXT PAGES %%%%%%%%%%%%%%
+
+\include{Chap1_Introduction}
+\include{Chap2_LiteratureReview}
+\include{Chap3_Methodology}
+\include{Chap4_ResultsAndDiscussion}
+\include{Chap5_Conclusion}
+
+%%%%%%%%%%%%% TEXT PAGES %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%
+
+% use bibtex ------------------
+\bibliographystyle{ieeetr} % style
+\bibliography{library} % database
+
+% manual ----------------------
+%\include{Bibliography}
+
+%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% PUBLICATIONS PAGE %%%%%%%%%%%
+
+% Uncomment and create ListPublications.tex if you have publications
+% \include{ListPublications}
+
+%%%%%%%%% PUBLICATIONS PAGE %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% APPENDICES (OPTIONAL) %%%%%%%%
+
+% \appendix
+% \input{Appendix_A} % use input only
+% \include{Appendix_B}
+% \include{Appendix_C}
+
+%%%%%%%% APPENDICES (OPTIONAL) %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% CURRICULUM VITAE %%%%%%%%%%%
+
+\include{CurriculumVitae}
+
+%%%%%%%%%% CURRICULUM VITAE %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%% BODY %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
