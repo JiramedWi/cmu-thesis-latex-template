@@ -334,7 +334,7 @@ Before writing your thesis, make sure you have these ready:
 | CMU thesis formatting guidelines | Check your faculty's specific requirements |
 | Your photo for CV page | Save as `Images/your_photo.jpg` |
 
-> **Reference**: Check the [CMU thesis formatting guidelines (Thai)](https://www.reg.cmu.ac.th/webreg/reg-files/g/reg-g-B3.pdf) for the official formatting rules. Note: the document is primarily in Thai with limited English sections. It is strongly recommended to consult with your **advisor** or **CMU Graduate School staff** for the most up-to-date requirements before submission.
+> **Reference**: Check the [CMU thesis formatting guidelines (Thai)](https://www.reg.cmu.ac.th/webreg/reg-files/g/reg-g-B3.pdf) for the official formatting rules. Note: the document is primarily in Thai with limited English sections. It is strongly recommended to consult with your **advisor** or **your faculty's graduate school staff** for the most up-to-date requirements before submission.
 
 ---
 
