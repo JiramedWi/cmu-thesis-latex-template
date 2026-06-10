@@ -9,6 +9,13 @@
 %%% Chiang Mai University, Chiang Mai Thailand  %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Templated and maintained by Jiramed Wi.     %%%
+%%%  GitHub: github.com/JiramedWi               %%%
+%%%  Based on the original CMUThesis class by    %%%
+%%%  Wanchai Tapanyo (version 201710)            %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \LoadClassWithOptions{memoir}
 
 % MARGIN ==============================================
