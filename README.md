@@ -237,6 +237,152 @@ Display math:
 
 ---
 
+## Editor Setup
+
+### VS Code (Recommended Setup)
+
+If you're using **VS Code**, you need to install the **LaTeX Workshop** extension and configure it to use XeLaTeX.
+
+#### Step 1: Install prerequisites
+
+1. Install a TeX distribution:
+   - **macOS**: [MacTeX](https://www.tug.org/mactex/) (or `brew install --cask mactex`)
+   - **Windows**: [MiKTeX](https://miktex.org/) or [TeX Live](https://www.tug.org/texlive/)
+   - **Linux**: `sudo apt install texlive-full` (Debian/Ubuntu) or `sudo dnf install texlive` (Fedora)
+
+2. Install the **LaTeX Workshop** extension in VS Code:
+   - Open VS Code → Extensions (`Cmd+Shift+X` / `Ctrl+Shift+X`)
+   - Search for **"LaTeX Workshop"** by James Yu
+   - Click **Install**
+
+#### Step 2: Configure LaTeX Workshop for XeLaTeX
+
+Open VS Code settings (`Cmd+,` / `Ctrl+,`), click the `{}` icon (Open Settings JSON), and add:
+
+```json
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": ["%DOCFILE%"]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex -> bibtex -> xelatex*2",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipe.default": "first"
+}
+```
+
+#### Step 3: Build your thesis
+
+- Open `MainPage.tex` in VS Code
+- Save the file → LaTeX Workshop will **auto-build** on save
+- Or press `Cmd+Option+B` / `Ctrl+Alt+B` to build manually
+- View the PDF with `Cmd+Option+V` / `Ctrl+Alt+V`
+
+> **Tip**: If the PDF preview doesn't update, press `Cmd+Shift+P` → type "LaTeX Workshop: Build with recipe" → select the `xelatex -> bibtex -> xelatex*2` recipe.
+
+### Overleaf (Online, No Setup)
+
+1. Upload the entire template folder as a `.zip` to [Overleaf](https://www.overleaf.com)
+2. Go to **Menu** → **Compiler** → select **XeLaTeX**
+3. That's it! Overleaf handles the rest.
+
+### Terminal (No Editor)
+
+```bash
+# From the template directory:
+xelatex MainPage.tex
+bibtex MainPage
+xelatex MainPage.tex
+xelatex MainPage.tex
+```
+
+---
+
+## Prerequisites Before You Start
+
+Before writing your thesis, make sure you have these ready:
+
+| Item | Why you need it |
+|------|----------------|
+| Your thesis title (English + Thai) | Needed in `ThesisInfo.tex` |
+| Advisor and committee names (English + Thai) | Needed in `ThesisInfo.tex` |
+| Examination date | Needed in `ThesisInfo.tex` |
+| Your BibTeX references (`library.bib`) | Collect papers early, cite as you write |
+| Your images/figures (PNG, JPG, PDF) | Put them in `Images/` folder |
+| CMU thesis formatting guidelines | Check your faculty's specific requirements |
+| Your photo for CV page | Save as `Images/your_photo.jpg` |
+
+> **Reference**: Check the [CMU Graduate School website](https://grad.cmu.ac.th/) for the latest thesis formatting rules and submission guidelines.
+
+---
+
+## AI-Assisted Writing (Recommended)
+
+Writing a thesis in LaTeX can be tedious. Here are some tools that can help:
+
+### Claude Code (Highly Recommended)
+
+**[Claude Code](https://claude.ai/code)** is an AI coding assistant by Anthropic that works directly in your terminal and editor. It can:
+
+- Write and edit LaTeX content for you
+- Fix compilation errors automatically
+- Generate tables, figures, and formatting
+- Help structure your chapters
+- Manage your bibliography
+
+```bash
+# Install Claude Code
+npm install -g @anthropic-ai/claude-code
+
+# Navigate to your thesis folder
+cd your-thesis-folder
+
+# Start Claude Code
+claude
+```
+
+Once running, you can ask it things like:
+- "Add a new section about machine learning in Chap2"
+- "Fix the table formatting in Chap4"
+- "Help me write the abstract"
+- "Why is my LaTeX not compiling?"
+
+> **Fun fact**: This template was cleaned up and documented with the help of Claude Code. So it's already proven to work for thesis writing.
+
+### Other AI Tools
+
+| Tool | Best for |
+|------|----------|
+| [Claude](https://claude.ai) | General writing, research, brainstorming |
+| [ChatGPT](https://chat.openai.com) | General writing assistance |
+| [Overleaf AI](https://www.overleaf.com) | Inline LaTeX editing assistance |
+
+> **Important**: Always review and verify AI-generated content. Your thesis is your own work. Use AI as a helper, not a replacement for your thinking.
+
+---
+
 ## Common Issues
 
 | Problem | Solution |
@@ -252,7 +398,8 @@ Display math:
 ## Credits
 
 - **Original template**: Wanchai Tapanyo, Mathematics Department, Faculty of Science, CMU (2017)
-- **This version**: Cleaned and templated for easy reuse by CMU Master's students
+- **Templated & maintained by**: [Jiramed Withunsapphasiri](https://github.com/JiramedWi) (2025)
+- **AI-assisted documentation**: This template was cleaned, documented, and tested with [Claude Code](https://claude.ai/code) by Anthropic
 
 ---
 
