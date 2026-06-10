@@ -369,7 +369,7 @@ Once running, you can ask it things like:
 - "Help me write the abstract"
 - "Why is my LaTeX not compiling?"
 
-> **Fun fact**: This template was cleaned up and documented with the help of Claude Code. So it's already proven to work for thesis writing.
+> **Fun fact**: This template was cleaned up and documented with the help of Claude Code. It was also read and tested by an actual CMU Master's student who used it to write their own thesis. So it's battle-tested, not just AI-generated.
 
 ### Other AI Tools
 
@@ -392,6 +392,15 @@ Once running, you can ask it things like:
 | Font "Times New Roman" not found | Install it on your system, or change the font in `MainPage.tex` |
 | Page numbers wrong | Make sure you compile multiple times |
 | Images not found | Put images in `Images/` folder and use correct path |
+
+---
+
+## Questions?
+
+If you have any questions about this template, feel free to reach out — no charge, just happy to help fellow students!
+
+- **GitHub**: [JiramedWi](https://github.com/JiramedWi) — open an issue or start a discussion on the repo
+- **Email**: jiramedwi@gmail.com
 
 ---
 
